@@ -49,7 +49,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar({pokemonFilter}) {
+export default function NavBar({pokemonFilter, setBusca, busca}) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: '2em'}}>
       <AppBar  position="static" sx={{ backgroundColor: 'black'}}>
@@ -62,7 +62,7 @@ export default function NavBar({pokemonFilter}) {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             Pokedex
           </Typography>
-          <Search onChange={ (e) => pokemonFilter(e.target.value)}>
+          <Search value={busca} onChange={ (e) => setBusca(e.target.value)}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
