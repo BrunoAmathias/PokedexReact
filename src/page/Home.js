@@ -35,10 +35,11 @@ export const Home = () => {
     const filteredPokemon = useMemo(()=>{
       const lowerBusca = busca.toLowerCase()
       return dataPokemon.filter((poke) => poke.data.name.toLowerCase().includes(lowerBusca))
-    },[busca, dataPokemon]) 
-    
-      
-    
+  },[busca, dataPokemon]) 
+
+      let poke= 'grass'
+      const filteredTypePokemon = dataPokemon.filter((teste) => teste.data.types[0].type.name.includes(poke) )
+      console.log(filteredTypePokemon);
   return (
     <div>
         <NavBar busca={busca} setBusca={setBusca}   />
