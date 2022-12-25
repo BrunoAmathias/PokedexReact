@@ -11,6 +11,7 @@ export const Home = () => {
     const [open, setOpen] = React.useState(false);
     const [dataDialog, setDataDialog] = useState([])
     const [dataPokemon, setDataPokemon] = useState([])
+    const [useTeste, setUseTeste] = useState([])
     const [busca, setBusca] = useState('')
 
     const handleOpen = (e) => {
@@ -35,14 +36,21 @@ export const Home = () => {
     const filteredPokemon = useMemo(()=>{
       const lowerBusca = busca.toLowerCase()
       return dataPokemon.filter((poke) => poke.data.name.toLowerCase().includes(lowerBusca))
+
   },[busca, dataPokemon]) 
 
-      let poke= 'grass'
-      const filteredTypePokemon = dataPokemon.filter((teste) => teste.data.types[0].type.name.includes(poke) )
-      console.log(filteredTypePokemon);
+      
+
+      const onHandleFilterType = () => {
+        let poke= 'grass'
+        const filteredTypePokemon = dataPokemon.filter((teste) => teste.data.types[0].type.name.includes(poke) )
+        console.log(filteredTypePokemon);     
+        setDataPokemon(filteredTypePokemon)
+       }
+       console.log(dataPokemon);  
   return (
     <div>
-        <NavBar busca={busca} setBusca={setBusca}   />
+        <NavBar onHandleFilterType={onHandleFilterType} busca={busca} setBusca={setBusca}   />
          <Container  maxWidth='xl'>
         <Grid container spacing={2}  display='flex' justifyContent='center' alignItems='center'   >
         {
@@ -58,7 +66,7 @@ export const Home = () => {
              </Grid>
            
             ))
-        }
+        } 
           {
             dataDialog.length === 0 ? ('') : (<Dialog dataDialog={dataDialog} open={open} setOpen={setOpen}/>)
           }

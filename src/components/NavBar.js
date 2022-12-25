@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { Button } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar({pokemonFilter, setBusca, busca}) {
+export default function NavBar({setBusca, busca, onHandleFilterType}) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: '2em'}}>
       <AppBar  position="static" sx={{ backgroundColor: 'black'}}>
@@ -61,6 +62,9 @@ export default function NavBar({pokemonFilter, setBusca, busca}) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             Pokedex
+          </Typography>
+          <Typography>
+            <Button onClick={onHandleFilterType}>Enviar</Button>
           </Typography>
           <Search value={busca} onChange={ (e) => setBusca(e.target.value)}>
             <SearchIconWrapper>
