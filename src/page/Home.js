@@ -11,12 +11,13 @@ export const Home = () => {
     const [open, setOpen] = React.useState(false);
     const [dataDialog, setDataDialog] = useState([])
     const [dataPokemon, setDataPokemon] = useState([])
-    const [useTeste, setUseTeste] = useState([])
+    const [typePokemon, setTypePokemon] = useState('')
     const [busca, setBusca] = useState('')
 
     const handleOpen = (e) => {
         setOpen(true)
     };
+
 
 
     useEffect(()=>{
@@ -35,22 +36,26 @@ export const Home = () => {
 
     const filteredPokemon = useMemo(()=>{
       const lowerBusca = busca.toLowerCase()
-      return dataPokemon.filter((poke) => poke.data.name.toLowerCase().includes(lowerBusca))
-
-  },[busca, dataPokemon]) 
+      return dataPokemon.filter((poke) => (
+        
+        poke.data.name.toLowerCase().includes(lowerBusca) && poke.data.types[0].type.name.includes(typePokemon)
+      ))
+  },[busca, dataPokemon, typePokemon]) 
 
       
+  console.log(filteredPokemon);
 
-      const onHandleFilterType = () => {
-        let poke= 'grass'
-        const filteredTypePokemon = dataPokemon.filter((teste) => teste.data.types[0].type.name.includes(poke) )
-        console.log(filteredTypePokemon);     
-        setDataPokemon(filteredTypePokemon)
-       }
-       console.log(dataPokemon);  
+      // useEffect(()=>{
+      //   const filterTypePokemon = dataPokemon.filter((poke) => poke.data.types[0].type.name.includes(typePokemon) )
+      // console.log(filterTypePokemon);     
+      // setFilteredTypePokemon(filterTypePokemon)
+      // },[typePokemon])
+      
+      // console.log(filteredTypePokemon);
+      
   return (
     <div>
-        <NavBar onHandleFilterType={onHandleFilterType} busca={busca} setBusca={setBusca}   />
+        <NavBar setTypePokemon={setTypePokemon} busca={busca} setBusca={setBusca}   />
          <Container  maxWidth='xl'>
         <Grid container spacing={2}  display='flex' justifyContent='center' alignItems='center'   >
         {

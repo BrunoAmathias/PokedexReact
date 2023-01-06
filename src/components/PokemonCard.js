@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {  CardActionArea  } from '@mui/material';
+import {  CardActionArea} from '@mui/material';
 import { Box } from '@mui/system';
 
 export default function PokemonCard({name, image, types, pokemon}) {
@@ -65,7 +65,9 @@ return types[0].type.name
 }
 
   return (
+
     <Card sx={{ maxWidth: 345,boxShadow:'7px 7px 20px black', border: '2px solid black', padding:'0', margin: 'auto', background: background()}}>
+
       <CardActionArea>
         <CardMedia
           component="img"
