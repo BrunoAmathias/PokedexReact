@@ -50,12 +50,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar({setBusca, busca, setTypePokemon, getPokemons}) {
+export default function NavBar({setBusca, busca, setTypePokemon, getPokemons, setType2Pokemon}) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: '2em'}}>
       <AppBar  position="static" sx={{ backgroundColor: 'black'}}>
         <Toolbar>
-         
           <Typography
             variant="h6"
             noWrap
@@ -65,7 +64,7 @@ export default function NavBar({setBusca, busca, setTypePokemon, getPokemons}) {
           </Typography>
           <Typography>
             {/* <Button onClick={onHandleFilterType}>Enviar</Button> */}
-            <SelectAutoWidth getPokemons={getPokemons} setTypePokemon={setTypePokemon}/>
+            <SelectAutoWidth getPokemons={getPokemons} setType2Pokemon={setType2Pokemon} setTypePokemon={setTypePokemon}/>
           </Typography>
           <Search value={busca} onChange={ (e) => setBusca(e.target.value)}>
             <SearchIconWrapper>
