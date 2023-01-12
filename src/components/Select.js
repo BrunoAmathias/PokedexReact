@@ -33,6 +33,7 @@ export default function SelectAutoWidth({setTypePokemon, getPokemons}) {
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='poison'>Poison</MenuItem>
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='electric'>Electric</MenuItem>
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='ground'>Ground</MenuItem>
+          <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='flying'>Flying</MenuItem>
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='fairy'>Fairy</MenuItem>
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='fighting'>Fighting</MenuItem>
           <MenuItem onClick={(e) => {setTypePokemon(e.target.dataset.value)}} value='psychic'>Psychic</MenuItem>
